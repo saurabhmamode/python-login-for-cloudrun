@@ -1,13 +1,3 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/notional-yeti-370008/python-helloworld-log:1.0.0','.']
-# Docker push to Google Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push',  'gcr.io/notional-yeti-370008/python-helloworld-log:1.0.0']
-# Deploy to Cloud Run
-- name: google/cloud-sdk
-  args: ['gcloud', 'run', 'deploy', 'python-helloworld-log','--image=gcr.io/notional-yeti-370008/python-helloworld-log:1.0.0','--region', 'us-central1']
-  
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
@@ -21,3 +11,16 @@ spec:
     percent: 25
   - revisionName: pylogin2-00005-woj
     percent: 25
+    
+    
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/notional-yeti-370008/python-helloworld-log:1.0.0','.']
+# Docker push to Google Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push',  'gcr.io/notional-yeti-370008/python-helloworld-log:1.0.0']
+# Deploy to Cloud Run
+- name: google/cloud-sdk
+  args: ['gcloud', 'run', 'deploy', 'python-helloworld-log','--image=gcr.io/notional-yeti-370008/python-helloworld-log:1.0.0','--region', 'us-central1']
+  
+
