@@ -7,5 +7,10 @@
 # Deploy to Cloud Run
 - name: google/cloud-sdk
   args: ['gcloud', 'run', 'deploy', 'python-helloworld-log','--image=gcr.io/notional-yeti-370008/python-helloworld-log:1.0.0','--region', 'us-central1', '--traffic', 'percent: 20']
-  
-
+#for traffic management
+ spec:
+  traffic:
+  - percent: 20
+    latestRevision: true
+  - revisionName: pylogin2-00006-xec
+    percent: 80
