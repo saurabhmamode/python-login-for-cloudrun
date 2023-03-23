@@ -8,7 +8,7 @@ app = Flask(__name__)
 # when root url is accessed
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return "<p>Hello, World 2!</p>"
  
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
