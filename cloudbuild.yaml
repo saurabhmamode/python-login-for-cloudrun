@@ -10,7 +10,5 @@
 #for traffic management
  spec:
   traffic:
-  - percent: 30
+  - percent: 100
     latestRevision: true
-  - revisionName: pylogin2-00006-xec
-    percent: 70
