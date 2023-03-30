@@ -12,3 +12,5 @@
   traffic:
   - percent: 100
     latestRevision: true
+  - percent: 0
+    latestRevision: pylogin2-00006-xec
